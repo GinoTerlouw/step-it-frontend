@@ -4,15 +4,19 @@ import {JwtService} from '../../services/jwt/jwt.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent implements OnInit {
   public userForm = new FormGroup({
     email: new FormControl('test@test.com', [
       Validators.required,
       Validators.email,
+      Validators.maxLength(255)
+    ]),
+    name: new FormControl('test', [
+      Validators.required,
       Validators.maxLength(255)
     ]),
     password: new FormControl('test123', [
@@ -35,6 +39,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.jwtService.login(this.userForm.value);
+    this.jwtService.signup(this.userForm.value);
   }
 }
