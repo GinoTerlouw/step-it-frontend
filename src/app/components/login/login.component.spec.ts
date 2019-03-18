@@ -7,13 +7,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login.component';
 import {JwtService} from '../../services/jwt/jwt.service';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
   let component: LoginComponent;
   let element: DebugElement;
   let compiled;
-  const formBuilder: FormBuilder = new FormBuilder();
-
 
   beforeAll(async(() => {
 
@@ -32,8 +30,7 @@ fdescribe('LoginComponent', () => {
         ReactiveFormsModule,
       ],
       providers: [
-        JwtService,
-        {provide: FormBuilder, useValue: formBuilder}
+        JwtService
       ]
     });
 
@@ -80,8 +77,6 @@ fdescribe('LoginComponent', () => {
     const password: AbstractControl = component.userForm.controls['password'];
 
     password.setValue('12345');
-
-    console.log(password.errors);
 
     expect(password.errors['minlength']).toBeTruthy();
   }));
