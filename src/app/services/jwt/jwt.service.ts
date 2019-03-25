@@ -63,7 +63,6 @@ export class JwtService {
       this.localStorageService.set('jwt', data.result.token);
 
       this.router.navigate(['/me/start']);
-
     });
   }
 }

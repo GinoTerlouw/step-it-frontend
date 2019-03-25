@@ -1,27 +1,68 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {DebugElement} from '@angular/core';
+import {HeaderComponent} from '../components/header/header.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {APP_BASE_HREF} from '@angular/common';
+
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+  let element: DebugElement;
+  let compiled;
+
+  beforeAll(async(() => {
+
+  }));
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent
       ],
-    }).compileComponents();
+      imports: [
+        RouterTestingModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue: '/'}
+      ]
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   }));
+
   it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
-  it(`should have as title 'app'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
+    console.log('app called');
+
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to amstapper-frontend!');
+
+    element = fixture.debugElement.componentInstance;
+
+    expect(element).toBeTruthy();
+  }));
+
+  it('should not have header element', async(() => {
+    fixture.detectChanges();
+
+    compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-header')).toBe(null);
+  }));
+
+  it('should have header element', async(() => {
+    component.menuVisible = true;
+
+    fixture.detectChanges();
+
+    compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.querySelector('app-header')).toBeTruthy();
   }));
 });
