@@ -1,6 +1,7 @@
-
 <div *ngIf="menuVisible">
-  <app-header></app-header>
+  <app-header
+    [isOpen]="menuIsOpen"
+  ></app-header>
 </div>
 <router-outlet></router-outlet>
 

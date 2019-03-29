@@ -13,6 +13,8 @@ import {TestComponent} from './components/test/test.component';
 import {ContentComponent} from './components/content/content.component';
 import {AuthenticatedModule} from './authenticated/authenticated.module';
 import {SignupComponent} from './components/signup/signup.component';
+import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 const appRoutes: Routes = [
   {
@@ -38,7 +40,9 @@ const appRoutes: Routes = [
     LoginComponent,
     TestComponent,
     ContentComponent,
-    SignupComponent
+    SignupComponent,
+    HamburgerMenuComponent,
+    MenuComponent
   ],
   imports: [
     AuthenticatedModule,

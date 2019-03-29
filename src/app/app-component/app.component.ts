@@ -6,7 +6,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  menuVisible: boolean = false;
+  menuVisible: boolean = true;
+
+  menuIsOpen: boolean = false;
   backGroundColor: string = 'purple';
   accentColor: string = 'orange';
 }
