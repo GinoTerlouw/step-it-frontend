@@ -1,12 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+body, html {
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 :root {
-  --orange: #FF8200;
+  --purple: #56519D;
+  --pink: #e91e63;
+  --orange: #FFA500;
+  --teal: #4DB6AC;
   --width: 160px;
+}
+
+.purple {
+  background-color: var(--purple);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+.pink {
+  background-color: var(--pink);
+}
+
+.teal {
+  background-color: var(--teal);
 }
 
 .hidden {

@@ -1,5 +1,17 @@
-<div class="menu">
-  <p>
-    menu works!
-  </p>
+<div class="menu"
+  [ngClass]="[
+    menuColor,
+    isOpen ? 'scale': ''
+  ]"
+>
+</div>
+<div class="menuList" [ngClass]="{
+  'slideRight': isOpen
+}">
+  <ul>
+    <li>Home</li>
+    <li>Mijn awards</li>
+    <li>Uitdagingen</li>
+    <li>Competitie</li>
+  </ul>
 </div>

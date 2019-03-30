@@ -1,6 +1,8 @@
+<div class="background"
+     [ngClass]="[backGroundColor, 'background']"
+></div>
 <div *ngIf="menuVisible">
   <app-header
-    [isOpen]="menuIsOpen"
   ></app-header>
 </div>
 <router-outlet></router-outlet>

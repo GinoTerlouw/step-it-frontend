@@ -1,18 +1,18 @@
-import {Component, OnInit, Input, Output} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {MenuStateService} from '../../services/menuState/menu-state.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  @Input() isOpen: boolean = false;
-
-  constructor() {
+export class HeaderComponent implements OnInit, OnDestroy {
+  constructor(private menuStateService: MenuStateService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-
+  ngOnDestroy(): void {
+  }
 }

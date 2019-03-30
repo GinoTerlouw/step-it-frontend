@@ -15,6 +15,7 @@ import {AuthenticatedModule} from './authenticated/authenticated.module';
 import {SignupComponent} from './components/signup/signup.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { MenuComponent } from './components/menu/menu.component';
+import {MenuStateService} from './services/menuState/menu-state.service';
 
 const appRoutes: Routes = [
   {
@@ -54,7 +55,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [JwtService, LocalstorageService],
+  providers: [JwtService, LocalstorageService, JwtService, MenuStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
