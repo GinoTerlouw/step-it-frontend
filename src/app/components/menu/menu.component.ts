@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MenuStateService} from '../../services/menuState/menu-state.service';
+import {GeneralStateService} from '../../services/generalState/general-state.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,12 +7,12 @@ import {MenuStateService} from '../../services/menuState/menu-state.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit, OnDestroy {
-  private menuSubscriber = this.menuStateService.getToggleMenuEvent();
-  private menuColorSubscriber = this.menuStateService.getMenuColorEvent();
+  private menuSubscriber = this.generalStateService.getToggleMenuEvent();
+  private menuColorSubscriber = this.generalStateService.getAccentColorEvent();
   public isOpen: boolean = false;
-  public menuColor: Colors = this.menuStateService.getMenuColor();
+  public menuColor: Colors = this.generalStateService.getAccentColor();
 
-  constructor(private menuStateService: MenuStateService) {
+  constructor(private generalStateService: GeneralStateService) {
   }
 
   ngOnInit(): void {

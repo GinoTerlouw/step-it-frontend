@@ -40,6 +40,14 @@ export class JwtService {
     }
   }
 
+  parseJWT(): {email: string, iat: number, id: string, name: string} {
+    const token = this.localStorageService.get('jwt');
+
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    return JSON.parse(window.atob(base64));
+  }
+
   login(loginDetails: { email: string, password: string }): void {
     const response: Observable<Resp> = this.http.post<Resp>(`${environment.apiURL}/login`, loginDetails)
       .pipe(

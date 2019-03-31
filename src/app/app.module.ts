@@ -9,13 +9,13 @@ import {JwtService} from './services/jwt/jwt.service';
 import {LocalstorageService} from './services/localstorage/localstorage.service';
 import {HeaderComponent} from './components/header/header.component';
 import {LoginComponent} from './components/login/login.component';
-import {TestComponent} from './components/test/test.component';
 import {ContentComponent} from './components/content/content.component';
 import {AuthenticatedModule} from './authenticated/authenticated.module';
 import {SignupComponent} from './components/signup/signup.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { MenuComponent } from './components/menu/menu.component';
-import {MenuStateService} from './services/menuState/menu-state.service';
+import {GeneralStateService} from './services/generalState/general-state.service';
+import { HomeComponent } from './components/home/home.component';
 
 const appRoutes: Routes = [
   {
@@ -28,9 +28,6 @@ const appRoutes: Routes = [
   }, {
     path: 'signup',
     component: SignupComponent
-  }, {
-    path: 'test',
-    component: TestComponent
   }
 ];
 
@@ -39,11 +36,11 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    TestComponent,
     ContentComponent,
     SignupComponent,
     HamburgerMenuComponent,
-    MenuComponent
+    MenuComponent,
+    HomeComponent
   ],
   imports: [
     AuthenticatedModule,
@@ -55,7 +52,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [JwtService, LocalstorageService, JwtService, MenuStateService],
+  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

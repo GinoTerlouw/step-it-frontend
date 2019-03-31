@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MenuStateService} from '../../services/menuState/menu-state.service';
+import {GeneralStateService} from '../../services/generalState/general-state.service';
 
 @Component({
   selector: 'app-hamburger-menu',
@@ -7,19 +7,20 @@ import {MenuStateService} from '../../services/menuState/menu-state.service';
   styleUrls: ['./hamburger-menu.component.css']
 })
 export class HamburgerMenuComponent implements OnInit, OnDestroy {
-  public menuColor: string = this.menuStateService.getMenuColor();
-  private menuColorSubscriber = this.menuStateService.getMenuColorEvent();
+  public menuColor: string = this.generalStateService.getAccentColor();
+  private menuColorSubscriber = this.generalStateService.getAccentColorEvent();
 
-  constructor(private menuStateService: MenuStateService) {
+  constructor(private generalStateService: GeneralStateService) {
   }
 
   toggleState() {
     document.getElementById('hamburger').classList.toggle('bt-menu-open');
-    this.menuStateService.toggleMenu();
+    this.generalStateService.toggleMenu();
   }
 
   ngOnInit(): void {
     this.menuColorSubscriber.subscribe((color) => {
+      console.log('kleur: ', color);
       this.menuColor = color;
     });
   }

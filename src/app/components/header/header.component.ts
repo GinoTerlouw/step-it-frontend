@@ -1,5 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MenuStateService} from '../../services/menuState/menu-state.service';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +6,9 @@ import {MenuStateService} from '../../services/menuState/menu-state.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  constructor(private menuStateService: MenuStateService) {
+  @Input() visible: boolean;
+
+  constructor() {
   }
 
   ngOnInit(): void {

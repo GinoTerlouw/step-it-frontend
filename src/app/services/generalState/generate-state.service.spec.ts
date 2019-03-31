@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MenuStateService } from './menu-state.service';
+import { GeneralStateService } from './general-state.service';
 
 describe('MenuStateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MenuStateService = TestBed.get(MenuStateService);
+    const service: GeneralStateService = TestBed.get(GeneralStateService);
     expect(service).toBeTruthy();
   });
 });

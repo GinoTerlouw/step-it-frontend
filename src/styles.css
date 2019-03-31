@@ -3,6 +3,7 @@ body, html {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  font-family: Verdana, serif;
 }
 
 :root {
@@ -31,4 +32,33 @@ body, html {
 
 .hidden {
   display: none;
+}
+
+.frame {
+  position: absolute;
+  top: 25%;
+  height: 100vh;
+  width: 100vw;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+.btn-large{
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  color: white;
 }

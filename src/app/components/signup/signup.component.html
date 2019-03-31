@@ -1,18 +1,22 @@
-<h1>Signup form</h1>
-
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  Email:
-  <input type="email" formControlName="email" required>
-  <br/>
-
-  Name:
-  <input type="name" formControlName="name" required>
-  <br/>
-
-  Password:
-  <input type="password" formControlName="password" required>
-  <br/>
-
-  <button type="submit" id="singup" [disabled]="!userForm.valid">Singup</button>
-</form>
-
+<div class="frame">
+  <div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row justify-content-center">
+        <h1 class="col-10">Registeren</h1>
+      </div>
+      <div class="row justify-content-center">
+        <input class="col-10" placeholder="Email" type="email" formControlName="email" required>
+      </div>
+      <div class="row justify-content-center">
+        <input placeholder="naam" class="col-10" type="text" formControlName="name" required>
+      </div>
+      <div class="row justify-content-center">
+        <input class="col-10" placeholder="Wachtwoord" type="password" formControlName="password" required>
+      </div>
+      <div class="row justify-content-center">
+        <button [ngClass]="[ACCENT_COLOR, 'col-10 btn-large']"  type="submit" id="login" [disabled]="!userForm.valid">REGISTREREN</button>
+        <a routerLink="/login">Ik heb al een account</a>
+      </div>
+    </form>
+  </div>
+</div>
