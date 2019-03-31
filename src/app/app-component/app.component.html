@@ -1,6 +1,6 @@
-
-<div *ngIf="menuVisible">
-  <app-header></app-header>
-</div>
+<div class="background"
+     [ngClass]="[backGroundColor, 'background']"
+></div>
+<app-header [visible]="menuVisible"></app-header>
 <router-outlet></router-outlet>
 

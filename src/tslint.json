@@ -6,6 +6,8 @@
       true,
       140
     ],
+    "no-ouput-rename": false,
+    "no-input-rename": false,
     "member-access": false,
     "member-ordering": [
       true,

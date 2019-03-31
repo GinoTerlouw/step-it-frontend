@@ -1,1 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: Verdana, serif;
+}
+
+:root {
+  --purple: #56519D;
+  --pink: #e91e63;
+  --orange: #FFA500;
+  --teal: #4DB6AC;
+  --width: 160px;
+}
+
+.purple {
+  background-color: var(--purple);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+.pink {
+  background-color: var(--pink);
+}
+
+.teal {
+  background-color: var(--teal);
+}
+
+.hidden {
+  display: none;
+}
+
+.frame {
+  position: absolute;
+  top: 25%;
+  height: 100vh;
+  width: 100vw;
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  margin-bottom: 12px;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+.btn-large{
+  border-radius: 5px;
+  padding: 15px;
+  border: none;
+  color: white;
+}

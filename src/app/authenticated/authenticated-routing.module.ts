@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {AuthGuard} from '../auth/auth.guard';
-import {TestComponent} from '../components/test/test.component';
+import {HomeComponent} from '../components/home/home.component';
 
 const authenticatedRoutes: Routes = [
   {
@@ -9,7 +9,7 @@ const authenticatedRoutes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {path: '', redirectTo: 'start', pathMatch: 'full'},
-      {path: 'start', component: TestComponent}
+      {path: 'start', component: HomeComponent}
     ]
   }
 ];

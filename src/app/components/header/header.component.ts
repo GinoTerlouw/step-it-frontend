@@ -1,16 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  @Input() visible: boolean;
+
   constructor() {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-
+  ngOnDestroy(): void {
+  }
 }
