@@ -1,0 +1,44 @@
+.menu {
+  border-radius: 100%;
+  width: var(--width);
+  height: var(--width);
+  position: absolute;
+  top: calc((var(--width) / 2) * -1);
+  left: calc((var(--width) / 2) * -1);
+  transition: all 0.4s ease-out;
+  z-index: 1;
+}
+
+.scale {
+  transform: scale(15);
+}
+
+.menuList {
+  position: absolute;
+  top: -500px;
+  left: -500px;
+  font-size: 32px;
+  width: 100%;
+  color: white;
+  z-index: 3;
+  font-family: Verdana, serif;
+  transition: all 0.3s ease-in-out;
+
+}
+
+.slideRight {
+  transform: translateX(500px) translateY(600px);
+}
+
+ul {
+  text-align: center;
+  padding: 0;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+}
+
+ul li {
+  padding-top: 10px;
+}
