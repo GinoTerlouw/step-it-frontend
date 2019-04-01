@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, RouteInterface {
   oldAcceleration: DeviceAcceleration = {x: 0, y: 0, z: 0};
   isChange: number = null;
   stepCount: number = 0;
-  acceptible: number = 0;
+  acceptable: number = 0;
   name: string = this.user.name;
   requiredSteps: number = 100;
   requiredStepsToNextLevel: number = 10;
@@ -58,11 +58,11 @@ export class HomeComponent implements OnInit, RouteInterface {
     dot /= (a * b);
     if (dot <= 0.994 && dot > 0.93 && acceleration.x < 0.5) {
       if (this.isChange === 0) {
-        if (this.acceptible > 2) {
+        if (this.acceptable > 2) {
           this.stepCount += 1;
-          this.acceptible = 0;
+          this.acceptable = 0;
         } else {
-          this.acceptible++;
+          this.acceptable++;
         }
       } else {
         if (this.isChange === 3) {
