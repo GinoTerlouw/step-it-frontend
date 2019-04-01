@@ -16,6 +16,8 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
 import { MenuComponent } from './components/menu/menu.component';
 import {GeneralStateService} from './services/generalState/general-state.service';
 import { HomeComponent } from './components/home/home.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [JwtService, LocalstorageService, JwtService, GeneralStateService],
   bootstrap: [AppComponent]
