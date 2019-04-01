@@ -62,3 +62,9 @@ h2 {
   border: none;
   color: white;
 }
+
+.btn-large:disabled {
+  background-color: #DFDFDF;
+  color: #9F9F9F;
+  cursor: default;
+}

@@ -61,6 +61,17 @@ export class HomeComponent implements OnInit, RouteInterface {
         if (this.acceptable > 2) {
           this.stepCount += 1;
           this.acceptable = 0;
+          this.stepsToGo = this.requiredSteps - this.stepCount;
+          this.stepsToNextLevel = this.requiredStepsToNextLevel - this.stepCount;
+          if (this.stepsToGo <= 0) {
+            this.requiredSteps *= 2;
+            this.stepsToGo = this.requiredSteps;
+          }
+          if (this.stepsToNextLevel <= 0) {
+            this.requiredStepsToNextLevel *= 2;
+            this.stepsToNextLevel = this.requiredStepsToNextLevel;
+            this.level++;
+          }
         } else {
           this.acceptable++;
         }
@@ -73,7 +84,9 @@ export class HomeComponent implements OnInit, RouteInterface {
     }
     // set old acceleration to current
     this.oldAcceleration = acceleration;
+
   }
+
 
   ngOnInit() {
   }
