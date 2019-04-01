@@ -9,9 +9,9 @@ import {JwtService} from '../../services/jwt/jwt.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, RouteInterface {
-  private readonly BACKGROUND_COLOR: Colors = 'orange';
-  private readonly ACCENT_COLOR: Colors = 'purple';
-  private readonly MENU_VISIBLE: boolean = false;
+  private readonly BACKGROUND_COLOR: Colors = 'purple';
+  private readonly ACCENT_COLOR: Colors = 'orange';
+  private readonly MENU_VISIBLE: boolean = true;
 
   user = this.jwtService.parseJWT();
   oldAcceleration: DeviceAcceleration = {x: 0, y: 0, z: 0};
@@ -37,14 +37,14 @@ export class HomeComponent implements OnInit, RouteInterface {
       console.log('This device does not support Device Motion');
     }
 
+    this.setAccentColor();
+    this.setBackGroundColor();
+    this.setMenuVisibility();
   }
 
   deviceMotionHandler(eventData) {
     // Grab the acceleration including gravity from the results
     const acceleration = eventData.accelerationIncludingGravity;
-
-    // Grab the rotation rate from the results
-    const rotation = eventData.rotationRate;
 
     let dot = (this.oldAcceleration.x * acceleration.x) +
       (this.oldAcceleration.y * acceleration.y) +
