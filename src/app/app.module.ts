@@ -56,7 +56,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgCircleProgressModule.forRoot()
   ],
-  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService],
+  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
