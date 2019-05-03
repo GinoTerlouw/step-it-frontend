@@ -1,0 +1,55 @@
+{
+  "configVersion": 1,
+  "timestamp": 1556890605159,
+  "index": "https://github.com/GinoTerlouw/step-it-frontend/index.html",
+  "assetGroups": [
+    {
+      "name": "amstapper",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://github.com/GinoTerlouw/step-it-frontend/favicon.ico",
+        "https://github.com/GinoTerlouw/step-it-frontend/index.html",
+        "https://github.com/GinoTerlouw/step-it-frontend/main.d7ec97562ed520b7e787.js",
+        "https://github.com/GinoTerlouw/step-it-frontend/polyfills.70797e53fbee1004e841.js",
+        "https://github.com/GinoTerlouw/step-it-frontend/runtime.26209474bfa8dc87a77c.js",
+        "https://github.com/GinoTerlouw/step-it-frontend/styles.cbc8b5f573eb759b3548.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://github.com/GinoTerlouw/step-it-frontend/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://github.com/GinoTerlouw/step-it-frontend/index.html": "7f3c136be66af9fc98bf77e1e68507b4499967b4",
+    "https://github.com/GinoTerlouw/step-it-frontend/main.d7ec97562ed520b7e787.js": "d8753e524decd8bf6e973adabc9ebe0bf1c9a9c5",
+    "https://github.com/GinoTerlouw/step-it-frontend/polyfills.70797e53fbee1004e841.js": "9523895b2983416284537971454a8e67b59b13ec",
+    "https://github.com/GinoTerlouw/step-it-frontend/runtime.26209474bfa8dc87a77c.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "https://github.com/GinoTerlouw/step-it-frontend/styles.cbc8b5f573eb759b3548.css": "3c6bfb93a7d8990bac67539500306a6d4838339f"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
