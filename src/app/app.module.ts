@@ -16,6 +16,8 @@ import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-me
 import { MenuComponent } from './components/menu/menu.component';
 import {GeneralStateService} from './services/generalState/general-state.service';
 import { HomeComponent } from './components/home/home.component';
+import {NgCircleProgressModule} from 'ng-circle-progress';
+import { NgCircleProgressComponent } from './components/ng-circle-progress/ng-circle-progress.component';
 
 const appRoutes: Routes = [
   {
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     SignupComponent,
     HamburgerMenuComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    NgCircleProgressComponent
   ],
   imports: [
     AuthenticatedModule,
@@ -50,9 +53,10 @@ const appRoutes: Routes = [
     ),
     BrowserModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot()
   ],
-  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService],
+  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService, HomeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
