@@ -12,7 +12,7 @@ export class NgCircleProgressComponent implements OnInit {
   constructor(private _homeComponent: HomeComponent) { }
 
   ngOnInit() {
-    this.stepsToNextLevel = this._homeComponent.getStepsToGo() / 100 * this._homeComponent.getStepsToNextLevel();
+    this.stepsToNextLevel = this._homeComponent.getStepsToNextLevel() / 100 * this._homeComponent.getStepCount();
   }
 
 }

@@ -31,6 +31,9 @@ export class HomeComponent implements OnInit, RouteInterface {
   getStepsToNextLevel() {
     return this.stepsToNextLevel;
   }
+  getStepCount() {
+    return this.stepCount;
+  }
 
   constructor(
     private generalStateService: GeneralStateService,
