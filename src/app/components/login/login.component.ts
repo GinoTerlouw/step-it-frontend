@@ -11,9 +11,9 @@ import {GeneralStateService} from '../../services/generalState/general-state.ser
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy, RouteInterface {
-  private readonly BACKGROUND_COLOR: Colors = 'orange';
-  private readonly ACCENT_COLOR: Colors = 'purple';
-  private readonly MENU_VISIBLE: boolean = false;
+  public readonly BACKGROUND_COLOR: Colors = 'pink';
+  public readonly ACCENT_COLOR: Colors = 'purple';
+  public readonly MENU_VISIBLE: boolean = true;
 
   public userForm = new FormGroup({
     email: new FormControl('', [
