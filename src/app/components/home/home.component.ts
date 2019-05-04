@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit, RouteInterface {
   user = this.jwtService.parseJWT();
   oldAcceleration: DeviceAcceleration = {x: 0, y: 0, z: 0};
   isChange: number = null;
-  stepCount: number = 0;
+  stepCount: number;
   acceptable: number = 0;
   name: string = this.user.name;
   requiredSteps: number = 100;
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, RouteInterface {
   stepsToGo: number = this.requiredSteps;
   stepsToNextLevel: number = this.requiredStepsToNextLevel;
   level: number = 1;
-
+  localStorageTest: string = '__storage_test__';
 
   constructor(
     private generalStateService: GeneralStateService,
@@ -36,7 +36,6 @@ export class HomeComponent implements OnInit, RouteInterface {
     } else {
       console.log('This device does not support Device Motion');
     }
-
     this.setAccentColor();
     this.setBackGroundColor();
     this.setMenuVisibility();
@@ -60,6 +59,9 @@ export class HomeComponent implements OnInit, RouteInterface {
       if (this.isChange === 0) {
         if (this.acceptable > 2) {
           this.stepCount += 1;
+          if (this.storageAvailable()) {
+            localStorage.setItem('stepCount', JSON.stringify(this.stepCount));
+          }
           this.acceptable = 0;
           this.stepsToGo = this.requiredSteps - this.stepCount;
           this.stepsToNextLevel = this.requiredStepsToNextLevel - this.stepCount;
@@ -89,6 +91,10 @@ export class HomeComponent implements OnInit, RouteInterface {
 
 
   ngOnInit() {
+    if (this.storageAvailable()) {
+      this.stepCount = Number(localStorage.getItem('stepCount'));
+      this.stepsToGo = this.requiredSteps - this.stepCount;
+    }
   }
 
   setBackGroundColor(): void {
@@ -101,5 +107,14 @@ export class HomeComponent implements OnInit, RouteInterface {
 
   setMenuVisibility(): void {
     this.generalStateService.emitMenuVisibilityEvent(this.MENU_VISIBLE);
+  }
+  storageAvailable() {
+    try {
+      localStorage.setItem('test', this.localStorageTest);
+      localStorage.removeItem('test');
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }
