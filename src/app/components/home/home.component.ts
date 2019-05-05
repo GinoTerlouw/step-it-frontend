@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit, RouteInterface {
   stepsToGo: number = this.requiredSteps;
   level: number = 1;
   localStorageTest: string = '__storage_test__';
-  rewardVisable: boolean = false;
 
   constructor(
     private generalStateService: GeneralStateService,
@@ -130,9 +129,13 @@ export class HomeComponent implements OnInit, RouteInterface {
     }
   }
   displayReward() {
-    const rewardPopup = this.dialog.open(RewardDialogComponent);
-    this.rewardVisable = true;
+    const reward = this.dialog.open(RewardDialogComponent);
+    const audio = new Audio();
+    audio.src = 'assets/sound/succes1.wav';
+    audio.load();
+    audio.play();
   }
+  // DEBUG FUCTIONS
   reset() {
     this.level = 1;
     this.stepCount = 0;
@@ -143,13 +146,20 @@ export class HomeComponent implements OnInit, RouteInterface {
       localStorage.setItem('stepsToNextLevel', '11');
     }
   }
+  levelup() {
+    this.level++;
+    this.displayReward();
+  }
 }
 @Component({
-  selector: 'app-reward-dialog',
   templateUrl: './reward-dialog.html'
 })
 export class RewardDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<RewardDialogComponent>
+    public reward: MatDialogRef<RewardDialogComponent>
   ) {}
+  closeDialog() {
+    this.reward.close();
+
+  }
 }

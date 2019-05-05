@@ -1,17 +1,18 @@
 <div class="frame">
-<div style="text-align:center">
-  <br />
-  <span class="dot1">
-      <span class="dot2">
+  <div style="text-align:center">
+    <br />
+    <span class="dot1">
+        <span class="dot2">
+        </span>
       </span>
-    </span>
-  <br /><br />
-  <h2>
-  Kom op {{ name }}, <br />
-  nog {{ stepsToNextLevel }} stappen te gaan voor het volgende level! <br /><br />
-    Je heb al {{ stepCount }} stappen gezet!<br />
-    Je bent level {{ level }}!
-    <button (click)="reset()">reset(debug)</button>
-  </h2>
-</div>
+    <br /><br />
+    <h2>
+      Kom op {{ name }}, <br />
+      nog {{ stepsToNextLevel }} stappen te gaan voor het volgende level! <br /><br />
+      Je heb al {{ stepCount }} stappen gezet!<br />
+      Je bent level {{ level }}!
+      <button (click)="reset()">reset(debug)</button>
+      <button (click)="levelup()">levelup(debug)</button>
+    </h2>
+  </div>
 </div>
