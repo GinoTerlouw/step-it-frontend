@@ -27,6 +27,18 @@ export class HomeComponent implements OnInit, RouteInterface {
   level: number = 1;
   localStorageTest: string = '__storage_test__';
 
+
+  getStepsToGo() {
+    return this.stepsToGo;
+  }
+  getStepsToNextLevel() {
+    return this.stepsToNextLevel;
+  }
+  getStepCount() {
+    return this.stepCount;
+  }
+
+
   constructor(
     private generalStateService: GeneralStateService,
     private jwtService: JwtService,
