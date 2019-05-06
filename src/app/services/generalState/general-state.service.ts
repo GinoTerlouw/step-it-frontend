@@ -21,8 +21,8 @@ export class GeneralStateService {
     return this.toggleMenuEvent;
   }
 
-  public toggleMenu(): void {
-    this.menuIsOpen = !this.menuIsOpen;
+  public toggleMenu(val: boolean = null): void {
+    this.menuIsOpen = val ? val : !this.menuIsOpen;
     this.emitToggleMenuEvent(this.menuIsOpen);
   }
 
@@ -48,7 +48,6 @@ export class GeneralStateService {
   }
 
   public emitAccentColorChangeEvent(color: Colors): void {
-    console.log('cakked');
     this.accentColor = color;
     this.accentColorEvent.emit(color);
   }

@@ -20,7 +20,6 @@ export class HamburgerMenuComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.menuColorSubscriber.subscribe((color) => {
-      console.log('kleur: ', color);
       this.menuColor = color;
     });
   }

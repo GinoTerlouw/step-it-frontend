@@ -4,3 +4,10 @@
   min-height: 100%;
   z-index: 0;
 }
+
+#swipeArea {
+  position: absolute;
+  z-index: 3;
+  height: 100vh;
+  width: 4vw;
+}

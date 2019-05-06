@@ -20,6 +20,9 @@ import {HomeComponent} from './components/home/home.component';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgCircleProgressComponent} from './components/ng-circle-progress/ng-circle-progress.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {ToastrModule} from 'ngx-toastr';
 
 const appRoutes: Routes = [
   {
@@ -54,15 +57,29 @@ const appRoutes: Routes = [
       // {enableTracing: true}
     ),
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-center',
+      preventDuplicates: true,
+    }),
     ReactiveFormsModule,
     HttpClientModule,
     NgCircleProgressModule.forRoot(),
     MatDialogModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModuleServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [JwtService, LocalstorageService, JwtService, GeneralStateService, HomeComponent],
   bootstrap: [AppComponent],
+  providers: [
+    JwtService,
+    LocalstorageService,
+    JwtService,
+    GeneralStateService,
+    ConnectivityCheckService,
+    HomeComponent
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
