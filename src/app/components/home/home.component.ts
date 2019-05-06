@@ -147,7 +147,7 @@ export class HomeComponent implements OnInit, RouteInterface {
       localStorage.setItem('level', JSON.stringify(this.level));
       localStorage.setItem('stepsToNextLevel', JSON.stringify(this.stepsToNextLevel));
     }
-    // this.displayReward();
+    this.displayReward();
   }
   // DEBUG FUCTIONS
   reset() {
