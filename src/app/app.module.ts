@@ -15,9 +15,10 @@ import {SignupComponent} from './components/signup/signup.component';
 import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
 import { MenuComponent } from './components/menu/menu.component';
 import {GeneralStateService} from './services/generalState/general-state.service';
-import { HomeComponent } from './components/home/home.component';
 import {NgCircleProgressModule} from 'ng-circle-progress';
-import { NgCircleProgressComponent } from './components/ng-circle-progress/ng-circle-progress.component';
+import {HomeComponent, RewardDialogComponent} from './components/home/home.component';
+import {MatButtonModule, MatDialogModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
   {
@@ -44,6 +45,8 @@ const appRoutes: Routes = [
     MenuComponent,
     HomeComponent,
     NgCircleProgressComponent
+    HomeComponent,
+    RewardDialogComponent
   ],
   imports: [
     AuthenticatedModule,
@@ -55,9 +58,14 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     NgCircleProgressModule.forRoot()
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [JwtService, LocalstorageService, JwtService, GeneralStateService, HomeComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RewardDialogComponent]
 })
 export class AppModule {
 }
