@@ -135,7 +135,6 @@ export class HomeComponent implements OnInit, RouteInterface {
     }
   }
   displayReward() {
-    const reward = this.dialog.open(RewardDialogComponent);
     const audio = new Audio();
     audio.src = 'assets/sound/succes1.wav';
     audio.load();
@@ -166,16 +165,5 @@ export class HomeComponent implements OnInit, RouteInterface {
   }
   closeDialog() {
     this.dialog.closeAll();
-  }
-}
-@Component({
-  templateUrl: './reward-dialog.html'
-})
-export class RewardDialogComponent {
-  constructor(
-    public reward: MatDialogRef<RewardDialogComponent>
-  ) {}
-  closeDialog() {
-    this.reward.close();
   }
 }

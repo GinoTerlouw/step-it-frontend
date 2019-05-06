@@ -12,13 +12,14 @@ import {LoginComponent} from './components/login/login.component';
 import {ContentComponent} from './components/content/content.component';
 import {AuthenticatedModule} from './authenticated/authenticated.module';
 import {SignupComponent} from './components/signup/signup.component';
-import { HamburgerMenuComponent } from './components/hamburger-menu/hamburger-menu.component';
-import { MenuComponent } from './components/menu/menu.component';
+import {HamburgerMenuComponent} from './components/hamburger-menu/hamburger-menu.component';
+import {MenuComponent} from './components/menu/menu.component';
 import {GeneralStateService} from './services/generalState/general-state.service';
 import {NgCircleProgressModule} from 'ng-circle-progress';
-import {HomeComponent, RewardDialogComponent} from './components/home/home.component';
+import {HomeComponent} from './components/home/home.component';
 import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgCircleProgressComponent} from './components/ng-circle-progress/ng-circle-progress.component';
 
 const appRoutes: Routes = [
   {
@@ -44,9 +45,7 @@ const appRoutes: Routes = [
     HamburgerMenuComponent,
     MenuComponent,
     HomeComponent,
-    NgCircleProgressModule,
-    HomeComponent,
-    RewardDialogComponent
+    NgCircleProgressComponent
   ],
   imports: [
     AuthenticatedModule,
@@ -64,7 +63,6 @@ const appRoutes: Routes = [
   ],
   providers: [JwtService, LocalstorageService, JwtService, GeneralStateService, HomeComponent],
   bootstrap: [AppComponent],
-  entryComponents: [RewardDialogComponent]
 })
 export class AppModule {
 }
