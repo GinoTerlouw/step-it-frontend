@@ -44,7 +44,7 @@ const appRoutes: Routes = [
     HamburgerMenuComponent,
     MenuComponent,
     HomeComponent,
-    NgCircleProgressComponent
+    NgCircleProgressModule,
     HomeComponent,
     RewardDialogComponent
   ],
@@ -57,8 +57,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgCircleProgressModule.forRoot()
-    HttpClientModule,
+    NgCircleProgressModule.forRoot(),
     MatDialogModule,
     BrowserAnimationsModule,
     MatButtonModule
