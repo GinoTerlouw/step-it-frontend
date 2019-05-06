@@ -3,7 +3,7 @@ import RouteInterface from '../../interfaces/route.interface';
 import {GeneralStateService} from '../../services/generalState/general-state.service';
 import {JwtService} from '../../services/jwt/jwt.service';
 import {MatDialog, MatDialogRef} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-home',
@@ -72,13 +72,7 @@ export class HomeComponent implements OnInit, RouteInterface {
           this.acceptable = 0;
           this.stepsToNextLevel--;
           if (this.stepsToNextLevel <= 0) {
-            this.level++;
-            this.stepsToNextLevel = Math.pow(this.level, 2) + Math.floor(Math.sqrt(10 * Math.sqrt(this.level)));
-            if (this.storageAvailable()) {
-              localStorage.setItem('level', JSON.stringify(this.level));
-              localStorage.setItem('stepsToNextLevel', JSON.stringify(this.stepsToNextLevel));
-            }
-            this.displayReward();
+            this.levelUp();
           }
           this.stepsToGo = this.requiredSteps - this.stepCount;
           if (this.stepsToGo <= 0) {
@@ -135,6 +129,15 @@ export class HomeComponent implements OnInit, RouteInterface {
     audio.load();
     audio.play();
   }
+  levelUp() {
+    this.level++;
+    this.stepsToNextLevel = Math.pow(this.level, 2) + Math.floor(Math.sqrt(10 * Math.sqrt(this.level)));
+    if (this.storageAvailable()) {
+      localStorage.setItem('level', JSON.stringify(this.level));
+      localStorage.setItem('stepsToNextLevel', JSON.stringify(this.stepsToNextLevel));
+    }
+    // this.displayReward();
+  }
   // DEBUG FUCTIONS
   reset() {
     this.level = 1;
@@ -147,8 +150,10 @@ export class HomeComponent implements OnInit, RouteInterface {
     }
   }
   levelup() {
-    this.level++;
-    this.displayReward();
+    this.levelUp();
+  }
+  closeDialog() {
+    this.dialog.closeAll();
   }
 }
 @Component({
@@ -160,6 +165,5 @@ export class RewardDialogComponent {
   ) {}
   closeDialog() {
     this.reward.close();
-
   }
 }

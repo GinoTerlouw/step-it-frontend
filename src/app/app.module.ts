@@ -16,7 +16,7 @@ import {HamburgerMenuComponent} from './components/hamburger-menu/hamburger-menu
 import {MenuComponent} from './components/menu/menu.component';
 import {GeneralStateService} from './services/generalState/general-state.service';
 import {HomeComponent, RewardDialogComponent} from './components/home/home.component';
-import {MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
@@ -55,7 +55,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [JwtService, LocalstorageService, JwtService, GeneralStateService],
   bootstrap: [AppComponent],
