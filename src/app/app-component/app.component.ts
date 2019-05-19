@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit} from '@angular/core';
 import {GeneralStateService} from '../services/generalState/general-state.service';
 import {ToastrService} from 'ngx-toastr';
 import {ConnectivityCheckService} from '../services/connectivityCheck/connectivity-check.service';
@@ -12,8 +12,8 @@ import Swipe from '../../helpers/swipe.helper';
 export class AppComponent implements OnInit, OnDestroy {
   menuVisible: boolean = this.generalStateService.getMenuVisibility();
   backGroundColor: Colors = this.generalStateService.getBackgroundColor();
-  backGroundColorSubscriber = this.generalStateService.getBackgroundColorEvent();
-  menuVisibilitySubscriber = this.generalStateService.getMenuVisibilityEvent();
+  backGroundColorSubscriber: EventEmitter<Colors> = this.generalStateService.getBackgroundColorEvent();
+  menuVisibilitySubscriber: EventEmitter<boolean> = this.generalStateService.getMenuVisibilityEvent();
 
   constructor(
     private generalStateService: GeneralStateService,

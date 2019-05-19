@@ -40,7 +40,7 @@ export class JwtService {
     }
   }
 
-  parseJWT(): {email: string, iat: number, id: string, name: string} {
+  parseJWT(): { email: string, iat: number, id: string, name: string } {
     const token = this.localStorageService.get('jwt');
 
     const base64Url = token.split('.')[1];
@@ -59,6 +59,12 @@ export class JwtService {
 
       this.router.navigate(['/me/start']);
     });
+  }
+
+  logout() {
+    this.localStorageService.set('jwt', null);
+
+    this.router.navigate(['/']);
   }
 
   signup(singupDetails: { name: string, email: string, password: string }): void {

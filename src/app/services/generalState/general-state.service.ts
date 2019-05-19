@@ -29,7 +29,6 @@ export class GeneralStateService {
   public getBackgroundColor(): Colors {
     return this.backgroundColor;
   }
-
   public getBackgroundColorEvent(): EventEmitter<Colors> {
     return this.backgroundColorEvent;
   }

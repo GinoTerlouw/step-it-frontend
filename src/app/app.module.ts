@@ -23,6 +23,7 @@ import {NgCircleProgressComponent} from './components/ng-circle-progress/ng-circ
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {ToastrModule} from 'ngx-toastr';
+import {ConnectivityCheckService} from './services/connectivityCheck/connectivity-check.service';
 
 const appRoutes: Routes = [
   {
@@ -68,9 +69,9 @@ const appRoutes: Routes = [
     NgCircleProgressModule.forRoot(),
     MatDialogModule,
     BrowserAnimationsModule,
-    MatButtonModuleServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
+    MatButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  bootstrap: [AppComponent],
   providers: [
     JwtService,
     LocalstorageService,

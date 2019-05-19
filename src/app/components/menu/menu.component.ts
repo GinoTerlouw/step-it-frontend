@@ -1,5 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {GeneralStateService} from '../../services/generalState/general-state.service';
+import {LocalstorageService} from '../../services/localstorage/localstorage.service';
+import {JwtService} from '../../services/jwt/jwt.service';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +15,10 @@ export class MenuComponent implements OnInit, OnDestroy {
   public menuColor: Colors = this.generalStateService.getAccentColor();
   public scale: string;
 
-  constructor(private generalStateService: GeneralStateService) {
+  constructor(
+    private generalStateService: GeneralStateService,
+    private jwtService: JwtService
+  ) {
     this.setScale(window.innerWidth / 160 + 10);
   }
 
@@ -25,6 +30,10 @@ export class MenuComponent implements OnInit, OnDestroy {
     this.menuColorSubscriber.subscribe((color) => {
       this.menuColor = color;
     });
+  }
+
+  logout(): void {
+    this.jwtService.logout();
   }
 
   @HostListener('window:resize', ['$event'])
